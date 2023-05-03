@@ -15,6 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Sonarcloud'
+    organization: 'okoraforpromise'
+    scannerMode: 'MSBuild'
+    projectKey: 'AgileProject'
+    projectName: 'AgileProject'
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
@@ -28,6 +35,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
