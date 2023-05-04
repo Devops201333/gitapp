@@ -17,7 +17,7 @@ jobs:
           uses: Azure/Pipeline@v1
           with:
             azure-devops-project-url: https://dev.azure.com/okoraforpromise/AgileProject
-            azure-pipeline-name: 'Devops201333.gitapp1'
+            azure-pipeline-name: 'Webapp (1)'
             azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN}}
 
         
